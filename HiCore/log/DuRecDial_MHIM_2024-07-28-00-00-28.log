@@ -1,0 +1,63 @@
+2024-07-28 00:00:28.081 | INFO     | crslab.config.config:__init__:86 - [Dataset: DuRecDial tokenized in jieba]
+2024-07-28 00:00:28.083 | INFO     | crslab.config.config:__init__:88 - [Model: MHIM]
+2024-07-28 00:00:28.084 | INFO     | crslab.config.config:__init__:95 - [Config]
+{
+    "dataset": "DuRecDial",
+    "tokenize": "jieba",
+    "related_truncate": 1024,
+    "context_truncate": 256,
+    "response_truncate": 30,
+    "scale": 1,
+    "model": "MHIM",
+    "token_emb_dim": 300,
+    "kg_emb_dim": 128,
+    "num_bases": 8,
+    "n_heads": 2,
+    "n_layers": 2,
+    "ffn_size": 300,
+    "dropout": 0.1,
+    "attention_dropout": 0.0,
+    "relu_dropout": 0.1,
+    "learn_positional_embeddings": false,
+    "embeddings_scale": true,
+    "reduction": false,
+    "n_positions": 1024,
+    "user_proj_dim": 512,
+    "mha_n_heads": 4,
+    "pooling": "Attn",
+    "extension_strategy": "Adaptive",
+    "rec": {
+        "epoch": 100,
+        "batch_size": 64,
+        "early_stop": false,
+        "stop_mode": "min",
+        "impatience": 2,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        }
+    },
+    "conv": {
+        "epoch": 0,
+        "batch_size": 128,
+        "impatience": 1,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        },
+        "lr_scheduler": {
+            "name": "ReduceLROnPlateau",
+            "patience": 3,
+            "factor": 0.5
+        },
+        "gradient_clip": 0.1
+    },
+    "pretrain": false,
+    "pretrain_epoch": 9999,
+    "gpu": [
+        0
+    ],
+    "model_name": "MHIM"
+}
+2024-07-28 00:00:32.201 | INFO     | crslab.data.dataset.base:__init__:49 - [Finish data load]
+2024-07-28 00:00:34.722 | INFO     | crslab.data.dataset.base:__init__:57 - [Finish data preprocess]
